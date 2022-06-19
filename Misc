@@ -1,0 +1,3 @@
+access-list # permit <address.0> <wildcardmask>
+ip nat in source list # int <outside> overload
+ip nat in source static tcp <address.in> <port> <routeraddress> <sshport>
