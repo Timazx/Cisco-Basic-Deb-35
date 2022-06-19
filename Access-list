@@ -1,0 +1,12 @@
+ip access-list ex #
+permit tcp any any esta
+permit udp host <selfouterportaddress> eq 53 any !
+permit udp host 5.5.5.1 eq 53 any !
+permit tcp host <outerportaddress> eq 80 any
+permit tcp host <outerportaddress> eq 443 any
+permit tcp host <outerportaddress> eq 2222 any (2244)
+permit udp host 5.5.5.100 host 4.4.4.100 eq 500 (swap)
+permit esp any any
+permit icmp any any
+int g1 
+ip access-group # in
