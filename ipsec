@@ -1,0 +1,17 @@
+crypto isakmp policy 1 
+ebcr aes
+auth pre-share
+hash sha256
+group 14
+e
+crypto iskamp key Demo35 address  <other.100>
+crypto iskamp keepalive 5
+crypto ipsec transform-set TSET esp-aes 256 esp-sha256-hmac
+mode tun
+e
+crypto ipsec prof VTI
+set transform-set TSET
+e
+int tun1 
+tun mode ipsec ipv4
+tun prot ipsec prof VTI
