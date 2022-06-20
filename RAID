@@ -1,0 +1,5 @@
+set-disk -Number 1(2) -IsOffline $false
+New-StoragePool -FriendlyName "POOL" -StorageSystemFriendlyName  "Windows Storage*" -PhysicalDisks (Get-PhysicalDisk -CanPool $ture)
+New-VirtualDisk -StoragePoolFriendltName "POOL" -FriendlyName "RAID1" -ResiliencySettingName Mirror -UseMaximumSize
+Initialize-Disk -FriendlyName "RAID1"
+New-Partition -DiskNumber 3 -UseMaximumSize -DriveLetter R
