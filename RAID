@@ -3,3 +3,6 @@ New-StoragePool -FriendlyName "POOL" -StorageSystemFriendlyName  "Windows Storag
 New-VirtualDisk -StoragePoolFriendltName "POOL" -FriendlyName "RAID1" -ResiliencySettingName Mirror -UseMaximumSize
 Initialize-Disk -FriendlyName "RAID1"
 New-Partition -DiskNumber 3 -UseMaximumSize -DriveLetter R
+Install-WindowsFeature -Name FS-Fileserver -IncludeManagmentTools
+New-Item -Path "R:\storage" -ItemType Directory
+New-SmbShare -Name "SMB" -Path "R:\storage" -FullAccess "Everyone"
