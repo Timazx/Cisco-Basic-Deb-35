@@ -5,3 +5,8 @@ left
 ip nat inside source static tcp 192.168.100.200 53 4.4.4.100 53
 ip nat inside source static udp 192.168.100.200 53 4.4.4.100 53
 slmgr /rearm
+
+
+ip domain name int.demp.wsr
+ip name-server 192.168.100.200
+ntp server ntp.int.demo.wsr
